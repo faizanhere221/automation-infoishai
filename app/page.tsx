@@ -86,6 +86,20 @@ export default function App() {
         .reveal.will-animate{opacity:0;transform:translateY(24px)}
         .reveal.will-animate.visible{opacity:1;transform:none}
         .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+        .btn-green{transition:all .22s ease!important}
+        .btn-green:hover{background:#0aad78!important;box-shadow:0 0 28px rgba(15,199,143,0.5),0 4px 14px rgba(15,199,143,0.2)!important;transform:translateY(-2px)}
+        .btn-outline{transition:all .22s ease!important}
+        .btn-outline:hover{border-color:rgba(255,255,255,0.32)!important;color:#F0EFE8!important;background:rgba(255,255,255,0.05)!important;box-shadow:0 0 16px rgba(255,255,255,0.05)}
+        .btn-purple{transition:all .22s ease!important}
+        .btn-purple:hover{background:#6358d4!important;box-shadow:0 0 28px rgba(123,110,246,0.5),0 4px 14px rgba(123,110,246,0.2)!important;transform:translateY(-2px)}
+        .nav-link{transition:color .2s ease,text-shadow .2s ease!important}
+        .nav-link:hover{color:#F0EFE8!important;text-shadow:0 0 14px rgba(240,239,232,0.3)}
+        .mob-link{transition:color .2s ease!important}
+        .mob-link:hover{color:#0FC78F!important}
+        .mob-tog-btn{transition:all .2s ease!important}
+        .mob-tog-btn:hover{border-color:rgba(255,255,255,0.3)!important;background:rgba(255,255,255,0.06)!important}
+        .footer-link-item{transition:color .2s ease!important}
+        .footer-link-item:hover{color:#F0EFE8!important}
         @media(max-width:1024px){.hero-inner-g{grid-template-columns:1fr!important}.hero-vis{display:none!important}.bento-g{grid-template-columns:1fr!important}.prod-g{grid-template-columns:repeat(2,1fr)!important}.case-g{grid-template-columns:1fr!important;gap:40px!important}.proc-g{grid-template-columns:1fr!important;gap:40px!important}.price-g{grid-template-columns:1fr!important}.bundle-g{grid-template-columns:1fr!important}.sub-g{grid-template-columns:1fr 1fr!important}}
         @media(max-width:768px){.nav-lnks{display:none!important}.mob-tog{display:flex!important}.hero-sec{padding:100px 20px 60px!important}.sec-pad{padding:70px 20px!important}.hero-stats-g{gap:24px!important}.prod-g{grid-template-columns:1fr 1fr!important}.sub-g{grid-template-columns:1fr!important}.ft-inner{flex-direction:column!important;align-items:flex-start!important}}
         @media(max-width:480px){.prod-g{grid-template-columns:1fr!important}}
@@ -101,11 +115,11 @@ export default function App() {
           </div>
           <div className="nav-lnks" style={{ display: "flex", alignItems: "center", gap: 32 }}>
             {[["services","Services"],["products","Products"],["case-study","Case Study"],["pricing","Pricing"]].map(([id,l]) => (
-              <span key={id} onClick={() => goTo(id)} style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, fontWeight: 500, color: activeNav===id ? "#F0EFE8" : "#8885A0", letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer", transition: "color .2s" }}>{l}</span>
+              <span key={id} onClick={() => goTo(id)} className="nav-link" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, fontWeight: 500, color: activeNav===id ? "#F0EFE8" : "#8885A0", letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer", transition: "color .2s" }}>{l}</span>
             ))}
-            <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 20px", background: "#0FC78F", color: "#000", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s", textDecoration: "none" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
+            <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" className="btn-green" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 20px", background: "#0FC78F", color: "#000", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s", textDecoration: "none" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
           </div>
-          <button className="mob-tog" onClick={() => setMobOpen(true)} style={{ display: "none", background: "none", border: "1px solid rgba(255,255,255,0.12)", color: "#F0EFE8", width: 38, height: 38, borderRadius: 6, cursor: "pointer", alignItems: "center", justifyContent: "center" }}><Icon name="menu" size={18}/></button>
+          <button className="mob-tog mob-tog-btn" onClick={() => setMobOpen(true)} style={{ display: "none", background: "none", border: "1px solid rgba(255,255,255,0.12)", color: "#F0EFE8", width: 38, height: 38, borderRadius: 6, cursor: "pointer", alignItems: "center", justifyContent: "center" }}><Icon name="menu" size={18}/></button>
         </div>
       </nav>
 
@@ -113,7 +127,7 @@ export default function App() {
         <div style={{ position: "fixed", inset: 0, background: "#07070F", zIndex: 300, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
           <button onClick={() => setMobOpen(false)} style={{ position: "absolute", top: 20, right: 20, background: "none", border: "none", cursor: "pointer", color: "#F0EFE8" }}><Icon name="x" size={24}/></button>
           {[["services","Services"],["products","Products"],["case-study","Case Study"],["pricing","Pricing"]].map(([id,l]) => (
-            <span key={id} onClick={() => goTo(id)} style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 700, color: "#8885A0", cursor: "pointer", transition: "color .2s" }}>{l}</span>
+            <span key={id} onClick={() => goTo(id)} className="mob-link" style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 700, color: "#8885A0", cursor: "pointer", transition: "color .2s" }}>{l}</span>
           ))}
           <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" onClick={() => setMobOpen(false)} style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 700, color: "#0FC78F", cursor: "pointer", textDecoration: "none" }}>Book a call</a>
         </div>
@@ -138,8 +152,8 @@ export default function App() {
             </h1>
             <p style={{ fontSize: 17, color: "#8885A0", lineHeight: 1.7, maxWidth: 480, marginBottom: 40 }}>From lead generation pipelines to real estate automation — we build, deploy, and sell AI-powered systems that save businesses thousands of hours.</p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <button onClick={() => goTo("services")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", transition: "all .25s" }}>Explore services <Icon name="arrow" size={15} color="#000"/></button>
-              <button onClick={() => goTo("products")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all .25s" }}>Browse AI products</button>
+              <button onClick={() => goTo("services")} className="btn-green" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", transition: "all .25s" }}>Explore services <Icon name="arrow" size={15} color="#000"/></button>
+              <button onClick={() => goTo("products")} className="btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all .25s" }}>Browse AI products</button>
             </div>
             <div className="hero-stats-g" style={{ display: "flex", gap: 40, marginTop: 56, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.07)", flexWrap: "wrap" }}>
               {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" }].map((s,i) => (
@@ -308,6 +322,7 @@ export default function App() {
                 href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com&su=Interested%20in%20Trade%20Advisor%20Pro&body=Hi%20Faizan%2C%20I%20am%20interested%20in%20buying%20Trade%20Advisor%20Pro.%20Please%20share%20the%20next%20steps."
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-green"
                 style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s" }}
               >Contact us <Icon name="arrow" size={14} color="#000"/></a>
             </div>
@@ -456,7 +471,7 @@ export default function App() {
               </div>
               <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(32px,3.5vw,52px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>From call to launch<br/>in weeks</h2>
               <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 500, marginTop: 14 }}>No bloated SOWs. No months of "discovery." We ship fast, iterate live, and charge for results.</p>
-              <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 36, transition: "all .25s", textDecoration: "none" }}>Start with a free call <Icon name="arrow" size={14} color="#000"/></a>
+              <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" className="btn-green" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 36, transition: "all .25s", textDecoration: "none" }}>Start with a free call <Icon name="arrow" size={14} color="#000"/></a>
             </div>
             <div className="reveal rd2">
               {[
@@ -508,7 +523,7 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "13px 20px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", transition: "all .25s", textDecoration: "none", ...(t.featured ? { background: "#7B6EF6", color: "#fff", border: "1px solid #7B6EF6" } : { background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)" }) }}>
+                <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" className={t.featured ? "btn-purple" : "btn-outline"} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "13px 20px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", transition: "all .25s", textDecoration: "none", ...(t.featured ? { background: "#7B6EF6", color: "#fff", border: "1px solid #7B6EF6" } : { background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)" }) }}>
                   Get started <Icon name="arrow" size={14} color={t.featured ? "#fff" : "currentColor"}/>
                 </a>
               </div>
@@ -525,8 +540,8 @@ export default function App() {
           <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(36px,4.5vw,60px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.04, marginBottom: 20 }}>Let's Automate<br/>Your Workflow</h2>
           <p style={{ fontSize: 17, color: "#8885A0", lineHeight: 1.7, marginBottom: 40 }}>Book a free 15-minute call. We'll audit your current workflow and show you exactly what we'd automate first — no strings attached.</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "16px 32px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 16, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .25s" }}>Book a free call <Icon name="arrow" size={16} color="#000"/></a>
-            <a href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "16px 32px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 16, fontWeight: 600, cursor: "pointer", textDecoration: "none", transition: "all .25s" }}>Email us</a>
+            <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" className="btn-green" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "16px 32px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 16, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .25s" }}>Book a free call <Icon name="arrow" size={16} color="#000"/></a>
+            <a href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "16px 32px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 16, fontWeight: 600, cursor: "pointer", textDecoration: "none", transition: "all .25s" }}>Email us</a>
           </div>
           <div style={{ display: "flex", gap: 28, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
             {[{ icon: "clock", t: "15 min call" },{ icon: "check", t: "Free audit included" },{ icon: "globe", t: "AU · US · UK · UAE" }].map((b,i) => (
@@ -548,7 +563,7 @@ export default function App() {
               { label: "LinkedIn", href: "https://www.linkedin.com/in/faizan-islam-41a3ab28b" },
               { label: "Upwork", href: "https://www.upwork.com/freelancers/faizanaideveloper" },
             ].map(l => (
-              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#5A5870", textDecoration: "none", fontWeight: 500, transition: "color .2s" }}>{l.label}</a>
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="footer-link-item" style={{ fontSize: 12, color: "#5A5870", textDecoration: "none", fontWeight: 500, transition: "color .2s" }}>{l.label}</a>
             ))}
           </div>
           <div style={{ fontSize: 12, color: "#5A5870" }}>Multan, Pakistan — AU · US · UK · UAE</div>
@@ -572,8 +587,8 @@ export default function App() {
 
       {/* STICKY FOOTER BAR */}
       <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 400, height: 68, background: "rgba(7,7,15,0.92)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderTop: "1px solid rgba(255,255,255,0.09)", display: "flex", alignItems: "center", justifyContent: "center", gap: 12, padding: "0 20px" }}>
-        <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
-        <a href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 24px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Email us</a>
+        <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" className="btn-green" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
+        <a href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 24px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Email us</a>
       </div>
     </div>
   );
