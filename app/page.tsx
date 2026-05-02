@@ -5,17 +5,7 @@ const PRODUCTS = [
   { id: 1, name: "Trade Advisor Pro", price: 99, status: "live", category: "finance", desc: "AI-powered stock analysis with institutional sources, halal screening, and portfolio construction.", icon: "chart" },
   { id: 2, name: "AI Contract Reviewer", price: 149, category: "business", desc: "Upload any contract — get clause-by-clause risk analysis, red flags, and revision suggestions.", icon: "shield" },
   { id: 3, name: "AI Business Plan Generator", price: 149, category: "business", desc: "Investor-ready business plans with market analysis, financial projections, and go-to-market strategy.", icon: "rocket" },
-  { id: 4, name: "Real Estate Analyzer", price: 149, category: "finance", desc: "Complete property analysis — cash flow, ROI, cap rate, market comparisons, and exit strategies.", icon: "building" },
-  { id: 5, name: "AI Resume Strategist", price: 99, category: "career", desc: "Optimized resume strategy, skill gap analysis, salary benchmarking, and interview prep.", icon: "user" },
-  { id: 6, name: "Marketing Strategy AI", price: 149, category: "business", desc: "Full marketing strategy with content calendars, ad budgets, channel mix, and competitor analysis.", icon: "megaphone" },
-  { id: 7, name: "Crypto Portfolio AI", price: 99, category: "finance", desc: "Portfolio risk assessment, DeFi opportunities, on-chain metrics, and regulatory risk analysis.", icon: "coins" },
-  { id: 8, name: "Health & Nutrition AI", price: 99, category: "health", desc: "Personalized meal plans, macro calculations, supplement recommendations, and workout programming.", icon: "heart" },
-];
-
-const BUNDLES = [
-  { name: "Wealth Builder Toolkit", price: 249, products: [1, 4, 7], save: "Save $98" },
-  { name: "Entrepreneur Toolkit", price: 299, products: [3, 6, 2], save: "Save $148" },
-  { name: "Complete AI Toolkit", price: 499, products: [1,2,3,4,5,6,7,8], save: "Save $593", featured: true },
+  { id: 4, name: "Real Estate Investment Analyzer", price: 149, category: "finance", desc: "Complete property analysis — cash flow, ROI, cap rate, market comparisons, and exit strategies.", icon: "building" },
 ];
 
 function Icon({ name, size = 18, color = "currentColor" }: { name: string; size?: number; color?: string }) {
@@ -156,7 +146,7 @@ export default function App() {
               <button onClick={() => goTo("products")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all .25s" }}>Browse AI products</button>
             </div>
             <div className="hero-stats-g" style={{ display: "flex", gap: 40, marginTop: 56, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.07)", flexWrap: "wrap" }}>
-              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" },{ v: "8", l: "AI Digital Products" }].map((s,i) => (
+              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" },{ v: "4", l: "AI Digital Products" }].map((s,i) => (
                 <div key={i}>
                   <div style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 800, color: "#0FC78F", letterSpacing: "-0.03em" }}>{s.v}</div>
                   <div style={{ fontSize: 12, color: "#5A5870", marginTop: 2, fontWeight: 500 }}>{s.l}</div>
@@ -291,10 +281,10 @@ export default function App() {
                 <span style={{ display: "block", width: 16, height: 1, background: "#0FC78F" }}/>AI Digital Products
               </div>
               <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>Premium AI Digital Products</h2>
-              <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 500, marginTop: 10 }}>Standalone AI-powered tools. One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
+              <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 500, marginTop: 10 }}>4 standalone AI-powered tools. One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
             </div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {[["all","All"],["finance","Finance"],["business","Business"],["career","Career"],["health","Health"]].map(([v,l]) => (
+              {[["all","All"],["finance","Finance"],["business","Business"]].map(([v,l]) => (
                 <button key={v} onClick={() => setProdFilter(v)} style={{ padding: "7px 16px", borderRadius: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600, border: prodFilter===v ? "1px solid #0FC78F" : "1px solid rgba(255,255,255,0.07)", background: prodFilter===v ? "#0FC78F" : "transparent", color: prodFilter===v ? "#000" : "#5A5870", cursor: "pointer", transition: "all .2s" }}>{l}</button>
               ))}
             </div>
@@ -318,31 +308,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Bundles */}
-          <div style={{ marginTop: 56 }}>
-            <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 4 }}>
-              <h3 style={{ fontFamily: "Syne, sans-serif", fontSize: 24, fontWeight: 800, letterSpacing: "-0.03em" }}>Save with Bundles</h3>
-              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.07)" }}/>
-            </div>
-            <div className="bundle-g" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginTop: 16 }}>
-              {BUNDLES.map((b,i) => (
-                <div key={i} className="reveal" style={{ background: b.featured ? "rgba(15,199,143,0.04)" : "rgba(255,255,255,0.04)", border: b.featured ? "1px solid rgba(15,199,143,0.35)" : "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 32, transition: "all .3s" }}>
-                  {b.featured && <div style={{ display: "inline-block", fontFamily: "JetBrains Mono, monospace", fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#000", background: "#0FC78F", padding: "4px 10px", borderRadius: 4, marginBottom: 16 }}>Best value</div>}
-                  <div style={{ fontFamily: "Syne, sans-serif", fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 8 }}>{b.name}</div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 12 }}>
-                    <span style={{ fontFamily: "Syne, sans-serif", fontSize: 34, fontWeight: 800, letterSpacing: "-0.03em" }}>${b.price}</span>
-                    <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "#0FC78F", fontWeight: 600 }}>{b.save}</span>
-                  </div>
-                  <div style={{ fontSize: 12, color: "#5A5870", lineHeight: 1.7, marginBottom: 24 }}>
-                    {b.products.map(id => PRODUCTS.find(p => p.id === id)?.name).join(" · ")}
-                  </div>
-                  <button style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 20px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", transition: "all .25s", ...(b.featured ? { background: "#0FC78F", color: "#000", border: "1px solid #0FC78F" } : { background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)" }) }}>
-                    Get bundle <Icon name="arrow" size={14} color={b.featured ? "#000" : "currentColor"}/>
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
