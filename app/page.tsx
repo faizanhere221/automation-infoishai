@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 
 const PRODUCTS = [
   { id: 1, name: "Trade Advisor Pro", price: 99, status: "live", category: "finance", desc: "AI-powered stock analysis with institutional sources, halal screening, and portfolio construction.", icon: "chart" },
-  { id: 2, name: "AI Contract Reviewer", price: 149, category: "business", desc: "Upload any contract — get clause-by-clause risk analysis, red flags, and revision suggestions.", icon: "shield" },
-  { id: 3, name: "AI Business Plan Generator", price: 149, category: "business", desc: "Investor-ready business plans with market analysis, financial projections, and go-to-market strategy.", icon: "rocket" },
-  { id: 4, name: "Real Estate Investment Analyzer", price: 149, category: "finance", desc: "Complete property analysis — cash flow, ROI, cap rate, market comparisons, and exit strategies.", icon: "building" },
 ];
 
 function Icon({ name, size = 18, color = "currentColor" }: { name: string; size?: number; color?: string }) {
@@ -36,7 +33,6 @@ export default function App() {
   const [mobOpen, setMobOpen] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
   const [activeNav, setActiveNav] = useState("");
-  const [prodFilter, setProdFilter] = useState("all");
 
   useEffect(() => {
     const onScroll = () => {
@@ -60,7 +56,7 @@ export default function App() {
     }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
     els.forEach(el => { if (el.classList.contains("will-animate")) io.observe(el); });
     return () => io.disconnect();
-  }, [prodFilter]);
+  }, []);
 
   const goTo = (id: string) => {
     const el = document.getElementById(id);
@@ -68,7 +64,6 @@ export default function App() {
     setMobOpen(false);
   };
 
-  const filtered = prodFilter === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === prodFilter);
   const tickerItems = ["Lead Generation Automation","AI Demo Sites","CRM Integration","Real Estate Pipeline","AI Copywriting","GoHighLevel Automation","Google Maps Scraping","WhatsApp Outreach"];
 
   return (
@@ -146,7 +141,7 @@ export default function App() {
               <button onClick={() => goTo("products")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all .25s" }}>Browse AI products</button>
             </div>
             <div className="hero-stats-g" style={{ display: "flex", gap: 40, marginTop: 56, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.07)", flexWrap: "wrap" }}>
-              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" },{ v: "4", l: "AI Digital Products" }].map((s,i) => (
+              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" },{ v: "1", l: "AI Digital Product" }].map((s,i) => (
                 <div key={i}>
                   <div style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 800, color: "#0FC78F", letterSpacing: "-0.03em" }}>{s.v}</div>
                   <div style={{ fontSize: 12, color: "#5A5870", marginTop: 2, fontWeight: 500 }}>{s.l}</div>
@@ -275,34 +270,27 @@ export default function App() {
       {/* PRODUCTS */}
       <section id="products" className="sec-pad" style={{ padding: "110px 40px", background: "#0D0D1A" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div className="reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 20 }}>
-            <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0FC78F", marginBottom: 20 }}>
-                <span style={{ display: "block", width: 16, height: 1, background: "#0FC78F" }}/>AI Digital Products
-              </div>
-              <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>Premium AI Digital Products</h2>
-              <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 500, marginTop: 10 }}>4 standalone AI-powered tools. One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
+          <div className="reveal" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0FC78F", marginBottom: 20, justifyContent: "center" }}>
+              <span style={{ display: "block", width: 16, height: 1, background: "#0FC78F" }}/>AI Digital Products
             </div>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {[["all","All"],["finance","Finance"],["business","Business"]].map(([v,l]) => (
-                <button key={v} onClick={() => setProdFilter(v)} style={{ padding: "7px 16px", borderRadius: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600, border: prodFilter===v ? "1px solid #0FC78F" : "1px solid rgba(255,255,255,0.07)", background: prodFilter===v ? "#0FC78F" : "transparent", color: prodFilter===v ? "#000" : "#5A5870", cursor: "pointer", transition: "all .2s" }}>{l}</button>
-              ))}
-            </div>
+            <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>Premium AI Digital Products</h2>
+            <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, marginTop: 10 }}>Standalone AI-powered tool. One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
           </div>
-          <div className="prod-g" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginTop: 40 }}>
-            {filtered.map(p => (
-              <div key={p.id} className="reveal" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: 24, position: "relative", transition: "all .3s", cursor: "pointer" }}>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
+            {PRODUCTS.map(p => (
+              <div key={p.id} className="reveal" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: 28, position: "relative", transition: "all .3s", cursor: "pointer", width: "100%", maxWidth: 380 }}>
                 {p.status === "live" && (
                   <div style={{ position: "absolute", top: 14, right: 14, display: "flex", alignItems: "center", gap: 5, fontFamily: "JetBrains Mono, monospace", fontSize: 9, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0FC78F", background: "rgba(15,199,143,0.12)", padding: "4px 8px", borderRadius: 4 }}>
                     <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#0FC78F" }}/>Live
                   </div>
                 )}
-                <div style={{ width: 42, height: 42, borderRadius: 10, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}><Icon name={p.icon} size={18} color="#0FC78F"/></div>
-                <div style={{ fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.3 }}>{p.name}</div>
-                <div style={{ fontSize: 12, color: "#5A5870", lineHeight: 1.6, marginBottom: 20, minHeight: 50 }}>{p.desc}</div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                  <span style={{ fontFamily: "Syne, sans-serif", fontSize: 22, fontWeight: 800, letterSpacing: "-0.02em" }}>${p.price}</span>
-                  <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 14px", background: "rgba(15,199,143,0.12)", color: "#0FC78F", border: "1px solid rgba(15,199,143,0.2)", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 12, fontWeight: 700, cursor: "pointer", transition: "all .2s" }}>Buy now <Icon name="arrow" size={12} color="#0FC78F"/></button>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}><Icon name={p.icon} size={22} color="#0FC78F"/></div>
+                <div style={{ fontFamily: "Syne, sans-serif", fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 10, lineHeight: 1.3 }}>{p.name}</div>
+                <div style={{ fontSize: 13, color: "#5A5870", lineHeight: 1.7, marginBottom: 24 }}>{p.desc}</div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 18, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+                  <span style={{ fontFamily: "Syne, sans-serif", fontSize: 26, fontWeight: 800, letterSpacing: "-0.02em" }}>${p.price}</span>
+                  <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 18px", background: "rgba(15,199,143,0.12)", color: "#0FC78F", border: "1px solid rgba(15,199,143,0.2)", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s" }}>Buy now <Icon name="arrow" size={13} color="#0FC78F"/></button>
                 </div>
               </div>
             ))}
