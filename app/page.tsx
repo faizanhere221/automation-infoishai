@@ -82,7 +82,7 @@ export default function App() {
   const tickerItems = ["Lead Generation Automation","AI Demo Sites","CRM Integration","Real Estate Pipeline","AI Copywriting","GoHighLevel Automation","Google Maps Scraping","WhatsApp Outreach"];
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#07070F", color: "#F0EFE8", minHeight: "100vh", overflowX: "hidden", WebkitFontSmoothing: "antialiased" }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#07070F", color: "#F0EFE8", minHeight: "100vh", overflowX: "hidden", WebkitFontSmoothing: "antialiased", paddingBottom: 72 }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
         *{margin:0;padding:0;box-sizing:border-box}
@@ -117,7 +117,7 @@ export default function App() {
             {[["services","Services"],["products","Products"],["case-study","Case Study"],["pricing","Pricing"]].map(([id,l]) => (
               <span key={id} onClick={() => goTo(id)} style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, fontWeight: 500, color: activeNav===id ? "#F0EFE8" : "#8885A0", letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer", transition: "color .2s" }}>{l}</span>
             ))}
-            <button onClick={() => goTo("contact")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 20px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s" }}>Book a call <Icon name="arrow" size={14} color="#000"/></button>
+            <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 20px", background: "#0FC78F", color: "#000", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s", textDecoration: "none" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
           </div>
           <button className="mob-tog" onClick={() => setMobOpen(true)} style={{ display: "none", background: "none", border: "1px solid rgba(255,255,255,0.12)", color: "#F0EFE8", width: 38, height: 38, borderRadius: 6, cursor: "pointer", alignItems: "center", justifyContent: "center" }}><Icon name="menu" size={18}/></button>
         </div>
@@ -126,9 +126,10 @@ export default function App() {
       {mobOpen && (
         <div style={{ position: "fixed", inset: 0, background: "#07070F", zIndex: 300, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
           <button onClick={() => setMobOpen(false)} style={{ position: "absolute", top: 20, right: 20, background: "none", border: "none", cursor: "pointer", color: "#F0EFE8" }}><Icon name="x" size={24}/></button>
-          {[["services","Services"],["products","Products"],["case-study","Case Study"],["pricing","Pricing"],["contact","Book a call"]].map(([id,l]) => (
+          {[["services","Services"],["products","Products"],["case-study","Case Study"],["pricing","Pricing"]].map(([id,l]) => (
             <span key={id} onClick={() => goTo(id)} style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 700, color: "#8885A0", cursor: "pointer", transition: "color .2s" }}>{l}</span>
           ))}
+          <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" onClick={() => setMobOpen(false)} style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 700, color: "#0FC78F", cursor: "pointer", textDecoration: "none" }}>Book a call</a>
         </div>
       )}
 
@@ -397,7 +398,7 @@ export default function App() {
               </div>
               <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(32px,3.5vw,52px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>From call to launch<br/>in weeks</h2>
               <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 500, marginTop: 14 }}>No bloated SOWs. No months of "discovery." We ship fast, iterate live, and charge for results.</p>
-              <button onClick={() => goTo("contact")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", border: "none", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 36, transition: "all .25s" }}>Start with a free call <Icon name="arrow" size={14} color="#000"/></button>
+              <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 700, cursor: "pointer", marginTop: 36, transition: "all .25s", textDecoration: "none" }}>Start with a free call <Icon name="arrow" size={14} color="#000"/></a>
             </div>
             <div className="reveal rd2">
               {[
@@ -449,9 +450,9 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <button onClick={() => goTo("contact")} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "13px 20px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", transition: "all .25s", ...(t.featured ? { background: "#7B6EF6", color: "#fff", border: "1px solid #7B6EF6" } : { background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)" }) }}>
+                <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "13px 20px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", transition: "all .25s", textDecoration: "none", ...(t.featured ? { background: "#7B6EF6", color: "#fff", border: "1px solid #7B6EF6" } : { background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)" }) }}>
                   Get started <Icon name="arrow" size={14} color={t.featured ? "#fff" : "currentColor"}/>
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -485,13 +486,37 @@ export default function App() {
             <span style={{ fontSize: 13, color: "#5A5870", fontWeight: 500 }}>automation.infoishai.com</span>
           </div>
           <div style={{ display: "flex", gap: 24 }}>
-            {["LinkedIn","Upwork","GitHub"].map(l => (
-              <a key={l} href="#" style={{ fontSize: 12, color: "#5A5870", textDecoration: "none", fontWeight: 500, transition: "color .2s" }}>{l}</a>
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/faizan-islam-41a3ab28b" },
+              { label: "Upwork", href: "https://www.upwork.com/freelancers/faizanaideveloper" },
+            ].map(l => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#5A5870", textDecoration: "none", fontWeight: 500, transition: "color .2s" }}>{l.label}</a>
             ))}
           </div>
           <div style={{ fontSize: 12, color: "#5A5870" }}>Multan, Pakistan — AU · US · UK · UAE</div>
         </div>
       </footer>
+
+      {/* WHATSAPP FLOATING BUTTON */}
+      <a
+        href="https://wa.me/923228837325"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Chat on WhatsApp"
+        style={{ position: "fixed", bottom: 88, right: 24, zIndex: 500, width: 52, height: 52, borderRadius: "50%", background: "#25D366", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 20px rgba(37,211,102,0.4)", transition: "transform .2s, box-shadow .2s" }}
+        onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.1)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 28px rgba(37,211,102,0.55)"; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(37,211,102,0.4)"; }}
+      >
+        <svg width={26} height={26} viewBox="0 0 24 24" fill="#fff">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+
+      {/* STICKY FOOTER BAR */}
+      <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 400, height: 68, background: "rgba(7,7,15,0.92)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderTop: "1px solid rgba(255,255,255,0.09)", display: "flex", alignItems: "center", justifyContent: "center", gap: 12, padding: "0 20px" }}>
+        <a href="https://calendly.com/islam9039438/30min" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Book a call <Icon name="arrow" size={14} color="#000"/></a>
+        <a href="mailto:infoishfounder@gmail.com" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "11px 24px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", textDecoration: "none", transition: "all .2s", whiteSpace: "nowrap" }}>Email us</a>
+      </div>
     </div>
   );
 }
