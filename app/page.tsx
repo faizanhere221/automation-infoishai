@@ -304,13 +304,12 @@ export default function App() {
                 <span style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.03em", color: "#F0EFE8" }}>$99</span>
                 <span style={{ fontSize: 13, color: "#5A5870", marginLeft: 8 }}>one-time</span>
               </div>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <a
-                  href="mailto:infoishfounder@gmail.com?subject=Interested%20in%20Trade%20Advisor%20Pro&body=Hi%20Faizan%2C%20I%27m%20interested%20in%20purchasing%20Trade%20Advisor%20Pro%20(%2499).%20Please%20share%20the%20next%20steps."
-                  style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 26px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s" }}
-                >Buy now <Icon name="arrow" size={14} color="#000"/></a>
-                <button onClick={() => goTo("contact")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 22px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all .2s" }}>Book a call</button>
-              </div>
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=infoishfounder@gmail.com&su=Interested%20in%20Trade%20Advisor%20Pro&body=Hi%20Faizan%2C%20I%20am%20interested%20in%20buying%20Trade%20Advisor%20Pro.%20Please%20share%20the%20next%20steps."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 28px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s" }}
+              >Contact us <Icon name="arrow" size={14} color="#000"/></a>
             </div>
           </div>
 
