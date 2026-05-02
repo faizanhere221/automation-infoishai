@@ -25,6 +25,7 @@ function Icon({ name, size = 18, color = "currentColor" }: { name: string; size?
     layers: <><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>,
     phone: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>,
     clock: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>,
+    lock: <><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></>,
   };
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>{paths[name]}</svg>;
 }
@@ -141,7 +142,7 @@ export default function App() {
               <button onClick={() => goTo("products")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 28px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all .25s" }}>Browse AI products</button>
             </div>
             <div className="hero-stats-g" style={{ display: "flex", gap: 40, marginTop: 56, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.07)", flexWrap: "wrap" }}>
-              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" },{ v: "1", l: "AI Digital Product" }].map((s,i) => (
+              {[{ v: "500+", l: "Leads scraped daily" },{ v: "4", l: "Countries served" },{ v: "$2K–$15K", l: "Per engagement" }].map((s,i) => (
                 <div key={i}>
                   <div style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 800, color: "#0FC78F", letterSpacing: "-0.03em" }}>{s.v}</div>
                   <div style={{ fontSize: 12, color: "#5A5870", marginTop: 2, fontWeight: 500 }}>{s.l}</div>
@@ -270,30 +271,71 @@ export default function App() {
       {/* PRODUCTS */}
       <section id="products" className="sec-pad" style={{ padding: "110px 40px", background: "#0D0D1A" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div className="reveal" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto" }}>
+
+          {/* Section header */}
+          <div className="reveal" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 52px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#0FC78F", marginBottom: 20, justifyContent: "center" }}>
               <span style={{ display: "block", width: 16, height: 1, background: "#0FC78F" }}/>AI Digital Products
             </div>
             <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>Premium AI Digital Products</h2>
-            <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, marginTop: 10 }}>Standalone AI-powered tool. One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
+            <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7 }}>One-time purchase, no subscription. Open in browser, get expert-level output instantly.</p>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
-            {PRODUCTS.map(p => (
-              <div key={p.id} className="reveal" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: 28, position: "relative", transition: "all .3s", cursor: "pointer", width: "100%", maxWidth: 380 }}>
-                {p.status === "live" && (
-                  <div style={{ position: "absolute", top: 14, right: 14, display: "flex", alignItems: "center", gap: 5, fontFamily: "JetBrains Mono, monospace", fontSize: 9, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0FC78F", background: "rgba(15,199,143,0.12)", padding: "4px 8px", borderRadius: 4 }}>
-                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#0FC78F" }}/>Live
-                  </div>
-                )}
-                <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}><Icon name={p.icon} size={22} color="#0FC78F"/></div>
-                <div style={{ fontFamily: "Syne, sans-serif", fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 10, lineHeight: 1.3 }}>{p.name}</div>
-                <div style={{ fontSize: 13, color: "#5A5870", lineHeight: 1.7, marginBottom: 24 }}>{p.desc}</div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 18, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                  <span style={{ fontFamily: "Syne, sans-serif", fontSize: 26, fontWeight: 800, letterSpacing: "-0.02em" }}>${p.price}</span>
-                  <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 18px", background: "rgba(15,199,143,0.12)", color: "#0FC78F", border: "1px solid rgba(15,199,143,0.2)", borderRadius: 6, fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all .2s" }}>Buy now <Icon name="arrow" size={13} color="#0FC78F"/></button>
+
+          {/* Featured product card */}
+          <div className="reveal" style={{ maxWidth: 720, margin: "0 auto", background: "rgba(15,199,143,0.03)", border: "1px solid rgba(15,199,143,0.2)", borderRadius: 24, padding: "48px 52px", position: "relative" }}>
+            <div style={{ position: "absolute", top: 20, right: 20, display: "flex", alignItems: "center", gap: 5, fontFamily: "JetBrains Mono, monospace", fontSize: 9, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0FC78F", background: "rgba(15,199,143,0.12)", padding: "5px 10px", borderRadius: 4 }}>
+              <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#0FC78F" }}/>Live
+            </div>
+            <div style={{ width: 64, height: 64, borderRadius: 16, background: "rgba(15,199,143,0.1)", border: "1px solid rgba(15,199,143,0.25)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24 }}>
+              <Icon name="chart" size={30} color="#0FC78F"/>
+            </div>
+            <div style={{ fontFamily: "Syne, sans-serif", fontSize: 28, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 10, lineHeight: 1.2 }}>Trade Advisor Pro</div>
+            <p style={{ fontSize: 15, color: "#8885A0", lineHeight: 1.7, marginBottom: 32, maxWidth: 520 }}>AI-powered stock analysis with institutional sources, halal screening, and portfolio construction. Built for serious investors who want institutional-grade research in seconds.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 32px", marginBottom: 36 }}>
+              {["AI-powered stock analysis","Institutional data sources","Halal screening built-in","Downloadable PDF reports","Works fully in browser","~$0.05 per analysis"].map((f,i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "#8885A0" }}>
+                  <div style={{ width: 18, height: 18, borderRadius: 5, background: "rgba(15,199,143,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Icon name="check" size={11} color="#0FC78F"/></div>
+                  {f}
                 </div>
+              ))}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 28, borderTop: "1px solid rgba(255,255,255,0.07)", flexWrap: "wrap", gap: 16 }}>
+              <div>
+                <span style={{ fontFamily: "Syne, sans-serif", fontSize: 40, fontWeight: 800, letterSpacing: "-0.03em", color: "#F0EFE8" }}>$99</span>
+                <span style={{ fontSize: 13, color: "#5A5870", marginLeft: 8 }}>one-time</span>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <a
+                  href="mailto:infoishfounder@gmail.com?subject=Interested%20in%20Trade%20Advisor%20Pro&body=Hi%20Faizan%2C%20I%27m%20interested%20in%20purchasing%20Trade%20Advisor%20Pro%20(%2499).%20Please%20share%20the%20next%20steps."
+                  style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 26px", background: "#0FC78F", color: "#000", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, cursor: "pointer", textDecoration: "none", transition: "all .2s" }}
+                >Buy now <Icon name="arrow" size={14} color="#000"/></a>
+                <button onClick={() => goTo("contact")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 22px", background: "transparent", color: "#8885A0", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all .2s" }}>Book a call</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Coming soon */}
+          <div style={{ marginTop: 48 }}>
+            <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
+              <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "#3A3850", fontWeight: 600 }}>More tools coming soon</span>
+              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.05)" }}/>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+              {[
+                { name: "AI Contract Reviewer", desc: "Clause-by-clause risk analysis and red flags on any contract." },
+                { name: "AI Business Plan Generator", desc: "Investor-ready business plans with financial projections." },
+                { name: "Real Estate Investment Analyzer", desc: "Cash flow, ROI, cap rate, and market comparisons." },
+              ].map((c,i) => (
+                <div key={i} className="reveal" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 14, padding: 24, opacity: 0.5 }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 8, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon name="lock" size={15} color="#3A3850"/></div>
+                    <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 9, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3A3850", background: "rgba(255,255,255,0.04)", padding: "4px 8px", borderRadius: 4 }}>Coming Soon</span>
+                  </div>
+                  <div style={{ fontFamily: "Syne, sans-serif", fontSize: 14, fontWeight: 700, color: "#5A5870", marginBottom: 8, letterSpacing: "-0.01em" }}>{c.name}</div>
+                  <div style={{ fontSize: 12, color: "#3A3850", lineHeight: 1.6 }}>{c.desc}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
