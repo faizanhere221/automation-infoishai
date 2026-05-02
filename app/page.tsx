@@ -382,6 +382,70 @@ export default function App() {
         </div>
       </section>
 
+      {/* SYSTEM SHOWCASE — Real Estate Pipeline */}
+      <section className="sec-pad" style={{ padding: "110px 40px", background: "#07070F" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div className="reveal" style={{ marginBottom: 64 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7B6EF6", marginBottom: 20 }}>
+              <span style={{ display: "block", width: 16, height: 1, background: "#7B6EF6" }}/>System Showcase
+            </div>
+            <h2 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(32px,3.5vw,52px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 14 }}>Real Estate Pipeline<br/>Automation</h2>
+            <p style={{ fontSize: 16, color: "#8885A0", lineHeight: 1.7, maxWidth: 600, marginTop: 14 }}>Here's exactly what we build for real estate calling agencies — a live system demo using sample data.</p>
+          </div>
+
+          <div className="case-g" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
+
+            {/* LEFT — Metrics */}
+            <div className="reveal">
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                {[
+                  { v: "85+", l: "Lead score calculations per hour" },
+                  { v: "5",   l: "Automated follow-up flows" },
+                  { v: "40%", l: "Reduction in wasted calls" },
+                  { v: "$0",  l: "CRM migration needed" },
+                ].map((m,i) => (
+                  <div key={i} style={{ background: "rgba(123,110,246,0.04)", border: "1px solid rgba(123,110,246,0.15)", borderRadius: 12, padding: 24 }}>
+                    <div style={{ fontFamily: "Syne, sans-serif", fontSize: 34, fontWeight: 800, letterSpacing: "-0.04em", color: "#7B6EF6" }}>{m.v}</div>
+                    <div style={{ fontSize: 12, color: "#5A5870", marginTop: 4, lineHeight: 1.5 }}>{m.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT — System module cards */}
+            <div className="reveal rd2" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {[
+                {
+                  title: "Smart Google Sheets",
+                  text: "We transform your existing spreadsheet into an AI-powered CRM. Auto-scoring leads as Hot / Warm / Cold / Dead, sorting today's call list by priority, and tracking operator performance — without changing how your team works.",
+                },
+                {
+                  title: "Automated Follow-Ups",
+                  text: "Five trigger-based flows: No Answer → auto SMS in 2 hours. Callback Requested → reminder before call. Interested → escalate to manager. Not Interested → 30-day nurture. Appointment Set → confirmation + reminders.",
+                },
+                {
+                  title: "AI Message Generation",
+                  text: "Claude API generates personalized SMS and emails for each lead based on their name, property, call history, and outcome. Operators pick from 2–3 variations — human in the loop, 80% less writing time.",
+                },
+              ].map((c,i) => (
+                <div key={i} style={{ background: "rgba(123,110,246,0.03)", border: "1px solid rgba(123,110,246,0.12)", borderRadius: 14, padding: 28 }}>
+                  <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7B6EF6", marginBottom: 10 }}>{c.title}</div>
+                  <div style={{ fontSize: 14, color: "#8885A0", lineHeight: 1.7 }}>{c.text}</div>
+                  {i === 2 && (
+                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 16 }}>
+                      {["Google Sheets","Apps Script","Make.com","Claude API","Twilio","SendGrid"].map(t => (
+                        <span key={t} style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, padding: "5px 10px", borderRadius: 4, background: "rgba(123,110,246,0.08)", border: "1px solid rgba(123,110,246,0.2)", color: "#7B6EF6" }}>{t}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PROCESS */}
       <section id="process" className="sec-pad" style={{ padding: "110px 40px", background: "#0D0D1A" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
